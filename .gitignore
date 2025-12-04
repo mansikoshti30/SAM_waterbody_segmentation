@@ -74,6 +74,11 @@ results/
 *.prj
 *.cpg
 
+# Allow example images in images folder
+!images/*.png
+!images/*.jpg
+!images/*.jpeg
+
 # Logs
 *.log
 
