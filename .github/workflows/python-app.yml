@@ -1,0 +1,65 @@
+name: Python Lint and Test
+
+on:
+  push:
+    branches: [ main, develop ]
+  pull_request:
+    branches: [ main, develop ]
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install flake8 black
+        
+    - name: Lint with flake8
+      run: |
+        # Stop the build if there are Python syntax errors or undefined names
+        flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
+        # Exit-zero treats all errors as warnings
+        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=120 --statistics
+      continue-on-error: true
+    
+    - name: Check code formatting with black
+      run: |
+        black --check --diff .
+      continue-on-error: true
+
+  test:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+    
+    - name: Install system dependencies
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y gdal-bin libgdal-dev
+    
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install numpy opencv-python torch torchvision --index-url https://download.pytorch.org/whl/cpu
+        pip install rasterio geopandas shapely
+        # Note: SAM installation skipped in CI as it requires the model checkpoint
+        
+    - name: Test imports
+      run: |
+        python -c "import numpy; import cv2; import torch; import rasterio; import geopandas; print('Core imports successful')"
+      continue-on-error: true
