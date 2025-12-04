@@ -1,31 +1,31 @@
-# SAM Water Body Segmentation 🌊🛰️
+# SAM Water Body Segmentation
 
 Automated water body detection and segmentation from satellite imagery using Meta's **Segment Anything Model (SAM)**. This project combines spectral indices (NDWI/MNDWI) with deep learning to accurately identify and delineate water bodies in multi-spectral satellite images.
 
-## 🖼️ Results Preview
+## Results Preview
 
 <div align="center">
   <img src="images/result_comparison.png" alt="Water Body Segmentation Results" width="100%">
   <p><em>Left: Original Sentinel-2A satellite imagery | Right: Detected water bodies highlighted in red</em></p>
 </div>
 
-## ✨ Features
+## Features
 
-- 🌊 **Multi-spectral water detection** using NDWI (Normalized Difference Water Index) and MNDWI (Modified NDWI)
-- 🎯 **SAM-based refinement** for precise water body segmentation
-- ⚡ **Batch processing** of multiple satellite images
-- ☁️ **Cloud masking** to automatically remove cloud interference
-- 📊 **GeoJSON export** with area calculations (hectares and m²)
-- 🗺️ **Visualization overlays** with detected water bodies highlighted
-- ⚙️ **Configurable parameters** for different scenarios and sensors
+- **Multi-spectral water detection** using NDWI (Normalized Difference Water Index) and MNDWI (Modified NDWI)
+- **SAM-based refinement** for precise water body segmentation
+- **Batch processing** of multiple satellite images
+- **Cloud masking** to automatically remove cloud interference
+- **GeoJSON export** with area calculations (hectares and m²)
+- **Visualization overlays** with detected water bodies highlighted
+- **Configurable parameters** for different scenarios and sensors
 
-## 📋 Requirements
+## Requirements
 
 - Python 3.8+
 - CUDA-capable GPU (recommended) or CPU
 - SAM model checkpoint file (`sam_vit_b.pth`)
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Installation
 
@@ -64,7 +64,7 @@ pip install -r requirements.txt
    
    Test dataset for water body detection is available on Zenodo:
    
-   📦 [Download Sentinel-2 Water Bodies Dataset](https://zenodo.org/records/5205674)
+   [Download Sentinel-2 Water Bodies Dataset](https://zenodo.org/records/5205674)
    
    Extract the dataset to `data_set/dset-s2/` directory.
 
@@ -73,9 +73,9 @@ pip install -r requirements.txt
 python test_sam_5_overall.py
 ```
 
-> 💡 For detailed installation instructions, see [INSTALL.md](INSTALL.md)
+> **Note:** For detailed installation instructions, see [INSTALL.md](INSTALL.md)
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 SAM_project/
@@ -99,7 +99,7 @@ SAM_project/
 └── batch_overlays/            # Visualization overlays
 ```
 
-## 📖 Usage
+## Usage
 
 ### Basic Usage
 
@@ -156,9 +156,9 @@ Example GeoJSON output:
 }
 ```
 
-> 📚 For more examples and advanced usage, see [USAGE.md](USAGE.md)
+> **Note:** For more examples and advanced usage, see [USAGE.md](USAGE.md)
 
-## 🔬 Methodology
+## Methodology
 
 1. **Spectral Index Calculation**:
    - MNDWI (if SWIR available): `(Green - SWIR) / (Green + SWIR)`
@@ -181,45 +181,45 @@ Example GeoJSON output:
    - Small island removal
    - Vector polygon generation with area calculation
 
-## 📊 Script Versions
+## Script Versions
 
 | Script | Description | Best For |
 |--------|-------------|----------|
-| `test_sam_5_overall.py` | ⭐ **Recommended** - Production-ready with cloud masking | General use, best accuracy |
+| `test_sam_5_overall.py` | **Recommended** - Production-ready with cloud masking | General use, best accuracy |
 | `test_sam_3_overall.py` | Advanced morphological refinement | Complex water bodies |
 | `test_sam_1_overall.py` | Basic NDWI + SAM implementation | Quick testing |
 | `test_sam_2.py` | Enhanced spectral indices | Images with SWIR band |
 | `test_sam_4.py` | Experimental features | Development/testing |
 
-## 🤝 Contributing
+## Contributing
 
 Contributions are welcome! Whether it's bug reports, feature requests, or code contributions, please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
-## 📄 License
+## License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## Acknowledgments
 
 - [**Segment Anything Model (SAM)**](https://github.com/facebookresearch/segment-anything) by Meta AI Research
 - **Sentinel-2** satellite imagery by ESA (European Space Agency)
 - Open source geospatial community
 
-## 📚 Documentation
+## Documentation
 
-- 📖 [Installation Guide](INSTALL.md) - Detailed setup instructions
-- 🎯 [Usage Examples](USAGE.md) - Tutorials and examples
-- ⚡ [Quick Reference](QUICKREF.md) - Command and parameter reference
-- 🐛 [Contributing Guide](CONTRIBUTING.md) - How to contribute
-- 📝 [Changelog](CHANGELOG.md) - Version history
+- [Installation Guide](INSTALL.md) - Detailed setup instructions
+- [Usage Examples](USAGE.md) - Tutorials and examples
+- [Quick Reference](QUICKREF.md) - Command and parameter reference
+- [Contributing Guide](CONTRIBUTING.md) - How to contribute
+- [Changelog](CHANGELOG.md) - Version history
 
-## 📧 Support
+## Support
 
-- 💬 **Issues**: [GitHub Issues](https://github.com/mansikoshti30/SAM_waterbody_segmentation/issues)
-- 📖 **Documentation**: See guides above
-- 🌟 **Star this repo** if you find it useful!
+- **Issues**: [GitHub Issues](https://github.com/mansikoshti30/SAM_waterbody_segmentation/issues)
+- **Documentation**: See guides above
+- **Star this repo** if you find it useful!
 
-## 🔗 References
+## References
 
 - [SAM Paper (Kirillov et al., 2023)](https://arxiv.org/abs/2304.02643)
 - [Sentinel-2 Mission](https://sentinel.esa.int/web/sentinel/missions/sentinel-2)
@@ -229,4 +229,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-**Made with ❤️ for the remote sensing community**
+**Made for the remote sensing community**
+
+
