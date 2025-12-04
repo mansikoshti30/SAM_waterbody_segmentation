@@ -229,6 +229,6 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 
 ---
 
-**Made for the remote sensing community**
+
 
 
